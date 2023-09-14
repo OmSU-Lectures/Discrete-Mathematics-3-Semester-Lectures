@@ -1,0 +1,211 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{setspace,amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{scalerel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[unicode, pdftex]{hyperref}
+
+\def\stretchint#1{\vcenter{\hbox{\stretchto[440]{\displaystyle\int}{#1}}}}
+\def\scaleint#1{\vcenter{\hbox{\scaleto[3ex]{\displaystyle\int}{#1}}}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\newtheorem{example}{Пример}
+\newtheorem*{effect}{Следствие}
+\newtheorem{statement}{Утверждение}[section]
+\newtheorem*{remark}{Замечание}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}{Теорема}[section]
+
+\title{Дискретная математика и математическая логика \\ 3 семестр}
+\author{Данил Заблоцкий}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\chapter*{Введение}
+
+В прошлом году изучались:
+\begin{enumerate}
+    \item Основы
+          \begin{itemize}
+              \item Булевы функции
+              \item Формулы логики высказываний
+              \item Эквивалентные преобразования
+              \item Нормальные формы
+                    \begin{itemize}
+                        \item ДНФ/КНФ
+                        \item СДНФ/СКНФ
+                        \item Полином Жегалкина
+                    \end{itemize}
+              \item Минимальная ДНФ
+          \end{itemize}
+    \item Теория булевых функций
+          \begin{itemize}
+              \item Основной объект - булевы функции
+              \item Суперпозиция и подстановка переменных
+              \item Замкнутые классы булевых функций
+              \item Замыкание
+              \item Полные системы булевых функций и базисы
+              \item Теорема Поста о полноте системы булевых функций
+                    \begin{itemize}
+                        \item Классы Поста
+                        \item Леммы о немонотонных, несамодвойственных, нелинейных функциях
+                        \item Теорема
+                        \item Теорема о максимально замкнутых классах
+                    \end{itemize}
+          \end{itemize}
+    \item Логика высказываний
+          \begin{itemize}
+              \item Основной объект - формулы
+              \item Основы теории доказательств
+                    \begin{itemize}
+                        \item Логическое следование
+                        \item Вывод в форматных системах
+                        \item Исчисление высказываний
+                        \item Теорема Геделя о полноте исчисления высказываний
+                        \item Исчисление высказываний Генцена
+                        \item Метод резолции для логики высказываний
+                    \end{itemize}
+          \end{itemize}
+\end{enumerate}
+
+В этом году будет изучаться \textbf{язык логики предикатов}.
+
+Пример Аристотеля: $\left\{
+    \begin{array}{l}
+        $Все люди - смертные$ \\
+        $Сократ - человек$
+    \end{array}
+    \right. \implies$ Сократ - смертный
+
+$x$: Все люди - смертные \\
+
+$y$: Сократ - человек \\
+
+$z$: Сократ - смертный
+
+\begin{center}
+    {\Large $x, y \nvDash z$}
+\end{center}
+
+Вывод: ЛВ обладает слабой выразительной силой по сравнению с естественным языком.
+
+\chapter{Основные понятия}
+
+\begin{definition}
+    \textbf{$n$-местный предикант} на множестве $A$ - это отображение вида:
+    \begin{center}
+        $P: \ A^n \rightarrow \{0,1\}$,
+    \end{center} при этом $n$-местность - $P$.
+\end{definition}
+
+Формально, предикант - это высказывание, зависящее от параметров.
+
+\begin{example}
+    \begin{enumerate}
+        \item $A = \mathbb{Z}$.
+
+              $P(x) = 1 \iff x$ - простое число.
+
+              $Q(x,y) = 1 \iff x + y = 1$
+
+              $R(x,y) = 1 \iff x < y$
+
+              $T(x,y,z) = 1 \iff z =$ НОД$(x,y)$
+
+        \item $A$ - множество людей.
+
+              Примеры предикатов на $A$:
+
+              $P(x) = 1 \iff x$ - женщина
+
+              $Q(x,y) = 1 \iff x$ - родитель $y$
+
+              $R(x,y) = 1 \iff x$ и $y$ - братья
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    $n$-местная операция на множестве $A$ - это отображение вида $f: \ A^n \rightarrow A$.
+\end{definition}
+
+\begin{example}
+    $A = \mathbb{Z}$.
+    \begin{enumerate}
+        \item $f_1(x) = x + 1$;
+        \item $f_2(x) = 2x$;
+        \item $f_3(x) = 0$;
+        \item $f_4(x) = x^2$;
+        \item $g_1(x,y) = \left\{
+            \begin{array}{ll}
+                x^y, & y > 0; \\
+                0, & y \leqslant $ иначе$
+            \end{array}
+            \right.$;
+            \item $g_2(x,y) = x + y$;
+            \item $g_3(x,y) =$ сумма последних цифр чисел $x$ и $y$.
+    \end{enumerate}
+
+    \begin{equation*}
+        \forall x (P(x) \& Q(x) \rightarrow R(f(x)))
+    \end{equation*}
+\end{example}
+
+\begin{remark}
+    Чтобы писать формулы, достаточно иметь только обозначение предикатов и операций и знать их местность.
+\end{remark}
+
+\begin{definition}
+    \textbf{Сигнатура} - набор трех непересакающихся множеств: $\mathfrak{R} \cup \mathfrak{F} \cup \mathfrak{C}$, где элементы множества $\mathfrak{R}$ назовем предикатные символы, элементы $\mathfrak{F}$ - функциональные символы, элементы $\mathfrak{C}$ - константные символы. Так же должна быть определена функция $\mathfrak{M}: \ \mathfrak{R} \cup \mathfrak{F} \rightarrow \mathbb{N}$ - местность символов. 
+
+    \textbf{Сигнатура} - это набор предикатных, функциональных и константных символов с указанием их местности.
+\end{definition}
+
+\begin{example}
+    $\Sigma = \{P^{(1)}, \ Q^{(2)}, \ f^{(1)}, \ g^{(2)}, \ c\}$, где $P^{(1)}, \ Q^{(2)}$ - предикат, $f^{(1)}, \ g^{(2)}$ - функциональные символы, а $c$ - константный.
+\end{example}
+
+Символы $P, Q, R, \ldots$ считаем предикатными, символы $f, g, h, \ldots$ - функциональными, $a, b, c, \ldots$ - константами.
+
+Сигнатуры $\Sigma$ и $\Gamma$ - равны, если есть содержание и одинаковые количества символов каждого сорта, и местности символов попарно равны.
+\begin{center}
+    $\Sigma = \{P^{(1)}, \ Q^{(2)}, \ f^{(1)}, \ g^{(2)}, \ a, \ b\} =$ \\
+
+    $\Gamma = \{P_1^{(1)}, \ P_2^{(2)}, \ f_1^{(1)}, \ f_2^{(2)}, \ c_1, \ c_2\}$
+\end{center}
+
+Иногда элементы сигнатуры представляются общепринятыми символами ($+, \ \cdot, \ \ldots$).
+
+\begin{example}
+    Имеем формулу: $\forall x \ (P(x) \rightarrow Q(f(x)))$. Эта формула истинна или ложна?
+
+    Для ответа не хватает:
+    \begin{itemize}
+        \item множества, из которого берутся значения переменных;
+        \item расшифровки того, что обозначают символы $P, \ Q, \ f$.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    \textbf{Интепретация сигнатуры} $\Sigma$ на множестве $A$ - это отображение $I$, которое:
+    \begin{itemize}
+        \item каждый предикатный символ $P^{(n)} \in \Sigma$ отображает в $n$-местный предикат на множестве $A$;
+        \item каждый функциональный символ $f^{(n)} \subset \Sigma$ отображает в $n$-местную операцию на $A$;
+        \item каждый константный символ отображает в элемент множество $A$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \textbf{Алгебраическая система} - это набор, состаящий из множества $A$, сигнатуры $\Sigma$ и интепретации сигнатуры $\Sigma$ на множестве 
+\end{definition}
+
+\end{document}
