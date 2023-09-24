@@ -50,7 +50,7 @@
           \end{itemize}
     \item Теория булевых функций
           \begin{itemize}
-              \item Основной объект - булевы функции
+              \item Основной объект -- булевы функции
               \item Суперпозиция и подстановка переменных
               \item Замкнутые классы булевых функций
               \item Замыкание
@@ -65,7 +65,7 @@
           \end{itemize}
     \item Логика высказываний
           \begin{itemize}
-              \item Основной объект - формулы
+              \item Основной объект -- формулы
               \item Основы теории доказательств
                     \begin{itemize}
                         \item Логическое следование
@@ -82,16 +82,16 @@
 
 Пример Аристотеля: $\left\{
     \begin{array}{l}
-        $Все люди - смертные$ \\
-        $Сократ - человек$
+        $Все люди -- смертные$ \\
+        $Сократ -- человек$
     \end{array}
-    \right. \implies$ Сократ - смертный
+    \right. \implies$ Сократ -- смертный
 
-$x$: Все люди - смертные \\
+$x$: Все люди -- смертные \\
 
-$y$: Сократ - человек \\
+$y$: Сократ -- человек \\
 
-$z$: Сократ - смертный
+$z$: Сократ -- смертный
 
 \begin{center}
     {\Large $x, y \nvDash z$}
@@ -101,20 +101,20 @@ $z$: Сократ - смертный
 
 \chapter{Основные понятия}
 
-\begin{definition}
-    \textbf{$n$-местный предикант} на множестве $A$ - это отображение вида:
+\begin{definition}[$n$-местный предикант]
+    \textbf{$n$-местный предикант} на множестве $A$ -- это отображение вида:
     \begin{center}
         $P: \ A^n \rightarrow \{0,1\}$,
-    \end{center} при этом $n$-местность - $P$.
+    \end{center} при этом $n$-местность -- $P$.
 \end{definition}
 
-Формально, предикант - это высказывание, зависящее от параметров.
+Формально, предикант -- это высказывание, зависящее от параметров.
 
 \begin{example}
     \begin{enumerate}
         \item $A = \mathbb{Z}$.
 
-              $P(x) = 1 \iff x$ - простое число.
+              $P(x) = 1 \iff x$ -- простое число.
 
               $Q(x,y) = 1 \iff x + y = 1$
 
@@ -122,20 +122,20 @@ $z$: Сократ - смертный
 
               $T(x,y,z) = 1 \iff z =$ НОД$(x,y)$
 
-        \item $A$ - множество людей.
+        \item $A$ -- множество людей.
 
               Примеры предикатов на $A$:
 
-              $P(x) = 1 \iff x$ - женщина
+              $P(x) = 1 \iff x$ -- женщина
 
-              $Q(x,y) = 1 \iff x$ - родитель $y$
+              $Q(x,y) = 1 \iff x$ -- родитель $y$
 
-              $R(x,y) = 1 \iff x$ и $y$ - братья
+              $R(x,y) = 1 \iff x$ и $y$ -- братья
     \end{enumerate}
 \end{example}
 
-\begin{definition}
-    $n$-местная операция на множестве $A$ - это отображение вида $f: \ A^n \rightarrow A$.
+\begin{definition}[$n$-местная операция]
+    \textbf{$n$-местная операция} на множестве $A$ -- это отображение вида $f: \ A^n \rightarrow A$.
 \end{definition}
 
 \begin{example}
@@ -146,13 +146,13 @@ $z$: Сократ - смертный
         \item $f_3(x) = 0$;
         \item $f_4(x) = x^2$;
         \item $g_1(x,y) = \left\{
-            \begin{array}{ll}
-                x^y, & y > 0; \\
-                0, & y \leqslant $ иначе$
-            \end{array}
-            \right.$;
-            \item $g_2(x,y) = x + y$;
-            \item $g_3(x,y) =$ сумма последних цифр чисел $x$ и $y$.
+                  \begin{array}{ll}
+                      x^y, & y > 0;               \\
+                      0,   & y \leqslant $ иначе$
+                  \end{array}
+                  \right.$;
+        \item $g_2(x,y) = x + y$;
+        \item $g_3(x,y) =$ сумма последних цифр чисел $x$ и $y$.
     \end{enumerate}
 
     \begin{equation*}
@@ -164,19 +164,19 @@ $z$: Сократ - смертный
     Чтобы писать формулы, достаточно иметь только обозначение предикатов и операций и знать их местность.
 \end{remark}
 
-\begin{definition}
-    \textbf{Сигнатура} - набор трех непересакающихся множеств: $\mathfrak{R} \cup \mathfrak{F} \cup \mathfrak{C}$, где элементы множества $\mathfrak{R}$ назовем предикатные символы, элементы $\mathfrak{F}$ - функциональные символы, элементы $\mathfrak{C}$ - константные символы. Так же должна быть определена функция $\mathfrak{M}: \ \mathfrak{R} \cup \mathfrak{F} \rightarrow \mathbb{N}$ - местность символов. 
+\begin{definition}[Сигнатура]
+    \textbf{Сигнатура} -- набор трех непересакающихся множеств: $\mathfrak{R} \cup \mathfrak{F} \cup \mathfrak{C}$, где элементы множества $\mathfrak{R}$ назовем предикатные символы, элементы $\mathfrak{F}$ - функциональные символы, элементы $\mathfrak{C}$ - константные символы. Так же должна быть определена функция $\mathfrak{M}: \ \mathfrak{R} \cup \mathfrak{F} \rightarrow \mathbb{N}$ - местность символов.
 
-    \textbf{Сигнатура} - это набор предикатных, функциональных и константных символов с указанием их местности.
+    \textbf{Сигнатура} -- это набор предикатных, функциональных и константных символов с указанием их местности.
 \end{definition}
 
 \begin{example}
-    $\Sigma = \{P^{(1)}, \ Q^{(2)}, \ f^{(1)}, \ g^{(2)}, \ c\}$, где $P^{(1)}, \ Q^{(2)}$ - предикат, $f^{(1)}, \ g^{(2)}$ - функциональные символы, а $c$ - константный.
+    $\Sigma = \{P^{(1)}, \ Q^{(2)}, \ f^{(1)}, \ g^{(2)}, \ c\}$, где $P^{(1)}, \ Q^{(2)}$ -- предикат, $f^{(1)}, \ g^{(2)}$ -- функциональные символы, а $c$ -- константный.
 \end{example}
 
-Символы $P, Q, R, \ldots$ считаем предикатными, символы $f, g, h, \ldots$ - функциональными, $a, b, c, \ldots$ - константами.
+Символы $P, Q, R, \ldots$ считаем предикатными, символы $f, g, h, \ldots$ -- функциональными, $a, b, c, \ldots$ -- константами.
 
-Сигнатуры $\Sigma$ и $\Gamma$ - равны, если есть содержание и одинаковые количества символов каждого сорта, и местности символов попарно равны.
+Сигнатуры $\Sigma$ и $\Gamma$ -- равны, если есть содержание и одинаковые количества символов каждого сорта, и местности символов попарно равны.
 \begin{center}
     $\Sigma = \{P^{(1)}, \ Q^{(2)}, \ f^{(1)}, \ g^{(2)}, \ a, \ b\} =$ \\
 
@@ -195,8 +195,8 @@ $z$: Сократ - смертный
     \end{itemize}
 \end{example}
 
-\begin{definition}
-    \textbf{Интепретация сигнатуры} $\Sigma$ на множестве $A$ - это отображение $I$, которое:
+\begin{definition}[Интерпретация сигнатуры]
+    \textbf{Интепретация сигнатуры} $\Sigma$ на множестве $A$ -- это отображение $I$, которое:
     \begin{itemize}
         \item каждый предикатный символ $P^{(n)} \in \Sigma$ отображает в $n$-местный предикат на множестве $A$;
         \item каждый функциональный символ $f^{(n)} \subset \Sigma$ отображает в $n$-местную операцию на $A$;
@@ -204,8 +204,120 @@ $z$: Сократ - смертный
     \end{itemize}
 \end{definition}
 
-\begin{definition}
-    \textbf{Алгебраическая система} - это набор, состаящий из множества $A$, сигнатуры $\Sigma$ и интепретации сигнатуры $\Sigma$ на множестве 
+\begin{definition}[Алгебраическая система]
+    \textbf{Алгебраическая система} -- это набор, состоящий из множества $A$, сигнатуры $\Sigma$ и интепретации сигнатуры $\Sigma$ на множестве $A$. Множество $A$ называется \textbf{основным множеством системы}.
+    \begin{equation*}
+        \phi = <A, \Sigma, \mathfrak{I}>
+    \end{equation*}
 \end{definition}
+
+\section{Язык логики предикатов (1-го порядка)}
+
+Пусть $\Sigma$ -- сигнатура. Алфавит языка логики предикатов сигнатуры $\Sigma$ -- это
+\begin{equation*}
+    A_\Sigma = \Sigma \cup \{x_1, x_2, \ldots, \land, \lor, \lnot, \rightarrow, \iff, (, ), \forall, \exists, ,\}
+\end{equation*}
+
+\begin{definition}[Терм]
+    \textbf{Терм} сигнатуры $\Sigma$ -- это слово, построенное по правилам:
+    \begin{enumerate}
+        \item Символ переменной -- терм.
+        \item Константный символ -- терм.
+        \item Если $f^{(n)} \in \Sigma$ -- функциональный символ и $t_1,\ldots,t_n$ -- термы, то слово $f(t_1,\ldots,t_n)$ -- тоже терм.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    $\Sigma = \{+^{(2)},\cdot^{(2)},<^{(2)},0,1\}$
+
+    Термы: $x,y,z,0,1,x+y,z\cdot x, 0 < 1, x\cdot 1, z(x+y), x\cdot 1 + y,\ldots$
+\end{example}
+
+\begin{definition}[Атомарные формулы]
+    \textbf{Атомарные формулы} сигнатуры $\Sigma$ -- слово одного из двух видов:
+    \begin{itemize}
+        \item $t_1 = t_2$, где $t_1,t_2$ -- термы;
+        \item $P(t_1,t_2)$, где $P^{(n)} \in \Sigma$ -- предикатный символ, $t_1,\ldots,t_n$ -- термы.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Формула языка логики предикатов]
+    \textbf{Формула языка логики предикатов} -- это слово, построенное по правилам:
+    \begin{enumerate}
+        \item Атомарная формула -- формула.
+        \item Если $\phi_1$ и $\phi_2$ -- формулы, то слова $(\phi_1 \land \phi_2), \ (\phi_1 \lor \phi_2), \ (\phi_1 \rightarrow \phi_2), \ (\phi_1 \iff \phi_2), \ \lnot\phi_1$ -- тоже формулы.
+        \item Если $\phi$ -- формула, $x$ -- переменная, то $(\forall x \ \phi)$ и $(\exists x \ \phi)$ -- тоже формулы.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    $x = y \land y = 1, \ x < y \land y < z \lor z = 0, \ x + y < 1 \lor x + y < 0 \lor x = y, \ \forall x,y \ (x < y \lor y < x \lor x \leqslant y)$.
+\end{example}
+
+Для уменьшения количества скобок в формулах используется соглашение о приоритетах:
+\begin{center}
+    $(\forall,\exists) \rightarrow \lnot \rightarrow \land \rightarrow$ остальные операции
+\end{center}
+
+\begin{definition}[Связное и свободное вхождение]
+    Вхождение переменной $x$ в формуле вида $(\forall x \ \phi)$ и $(\exists x \ \phi)$ назовем \textbf{связным}. В противном случае вхождение переменной \textbf{свободное}.
+
+    Переменная $x$ \textbf{свободная} в формуле $\phi$, если есть хотя бы одно ее свободное вхождение в $\phi$. Иначе переменная \textbf{связная}.
+
+    Запись $\phi(x_1,\ldots,x_n)$ означает, что все свободные переменные формулы и содержатся в строке $x_1,\ldots,x_n$.
+\end{definition}
+
+\begin{definition}[Замкнутая формула (предложение)]
+    \textbf{Замкнутая формула (предложение)} -- это формула без свободных переменных.
+\end{definition}
+
+\begin{example}
+    $\forall x \exists y \quad (Q(x,y) \lor \lnot P(x))$
+\end{example}
+
+Язык = синтаксис + семантика
+
+Синтаксис -- правила написания слов
+
+Семантика -- смысл слов
+
+\section{Семантика языка логики предикатов}
+
+Пусть $A = <A,\Sigma>$ -- алгебраическая система. Терм $t(x_1,\ldots,x_n)$ определяет в системе $A$ функцию $t_A: \ A^n\rightarrow A$ по следующему правилу: заменяя в терме $t$ все функции, константные знаки на все интепретации, получаем суперпозицию функций.
+
+\begin{example}
+    $\Sigma = \{P^{(1)},Q^{(2)}, f^{(1)}, g^{(2)},a,b\}$
+    \begin{equation*}
+        t_1(x,y) = g(f(x), y), \quad t_2(x,y) = f(g(a,g(b,f(x))))
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Пусть $\phi(x_1,\ldots,x_n)$ -- формула, $A = <A,\Sigma>$ -- алгебраическая система, $a_1,\ldots,a_n \in A$. Истинность формулы $\phi$ в алгебраической системе $A$ на элементах $a_1,\ldots,a_n \ (A \vDash \phi(a_1,\ldots,a_n))$ определяется по следующим правилам:
+    \begin{enumerate}
+        \item Пусть $\phi$ имеет вид $t_1(x_1,\ldots,x_n) = t_2(x_1,\ldots,x_n)$, где $t_1$ и $t_2$ -- формулы:
+              \begin{equation*}
+                  A \vDash \phi(a_1,\ldots,a_n) \iff t_{1_A}(a_1,\ldots,a_n) = t_{2_A}(a_1,\ldots,a_n).
+              \end{equation*}
+        \item Пусть $\phi$ имеет вид $P(t_1,\ldots, t_k)$, где $P^{(k)}\in \Sigma$ -- предикатный символ, $t_1(x_1,\ldots,x_k),\ldots,t_k(x_1,\ldots,x_n)$ -- термы.
+              \begin{equation*}
+                  A\vDash \phi(a_1,\ldots,a_n) \iff P_A(t_1(x_1,\ldots,x_n),\ldots,t_k(x_1,\ldots,x_n)) = 1
+              \end{equation*}
+        \item Пусть $\phi = (\phi_1 \land \phi_2) \ [(\phi_1 \lor \phi_2), \ (\phi_1 \rightarrow \phi_2), \ (\phi_1 \iff \phi_2), \ \lnot \phi_1]$. Истинность определяется из значений формул по таблицам истинности логических связок.
+        \item Пусть $\phi(x_1,\ldots,x_n)$ имеет вид $\exists x \ \phi(x,x_1,\ldots,x_n)$. Тогда $A\vDash \phi(a_1,\ldots,a_n) \iff$ для некоторого $b\in A \quad A\vDash \phi(b,a_1,\ldots,a_n)$.
+        \item Пусть $\phi(x_1,\ldots,x_n)$ имеет вид $\forall x \ \phi(x,x_1,\ldots,x_n)$. Тогда $A\vDash\phi(a_1,\ldots,a_n) \iff$ для всех $b\in A \quad A\vDash\phi(b,a_1,\ldots,a_n)$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Тождественно истинная (ложная), выполнимая формула]
+    Формула $\phi(x_1,\ldots,x_n)$ \textbf{тождественно истинна (ложна)} в системе $A$, если $a_1,\ldots,a_n \in A, \ A \vDash \phi(a_1,\ldots,a_n) \ (A\nvDash \phi(a_1,\ldots,a_n))$.
+
+    Формула $\phi$ тождественно \textbf{истинна (ложна)}, если $\phi$ тождественно истинна (ложна) в любой системе сигнатуры $\Sigma$. \\
+
+    Формула $\phi(x_1,\ldots,x_n)$ \textbf{выполнима} в системе $A$, если $\exists a_1,\ldots,a_n: \ A\vDash\phi(a_1,\ldots,a_n)$.
+
+    Формула $\phi$ \textbf{выполнима}, если она выполнима хотя бы в одной системе сигнатуры $\Sigma$.
+\end{definition}
+
 
 \end{document}
